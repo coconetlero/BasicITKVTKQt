@@ -49,19 +49,26 @@ void MainWindow::open()
     }
 }
 
-void MainWindow::createMenus()
-{
-    fileMenu = new QMenu(tr("&File"), this);
-    fileMenu->addAction(openAct);
-
-    menuBar()->addMenu(fileMenu);
-}
-
 void MainWindow::createActions()
 {
     openAct = new QAction(tr("&Open..."), this);
     openAct->setShortcut(tr("Ctrl+O"));
     connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
+    
+    medianFilterAct = new QAction(tr("&Median Filter"), this);    
+    connect(medianFilterAct, SIGNAL(triggered()), this, SLOT(medianfilter()));
+}
+
+void MainWindow::createMenus()
+{
+    fileMenu = new QMenu(tr("&File"), this);
+    fileMenu->addAction(openAct);
+    
+    fileMenu = new QMenu(tr("&Filter"), this);
+    filterMenu->addAction(medianFilterAct);
+
+    menuBar()->addMenu(fileMenu);
+    menuBar()->addMenu(filterMenu);
 }
 
 void MainWindow::createStatusBar()

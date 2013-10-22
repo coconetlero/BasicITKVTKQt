@@ -35,6 +35,11 @@ private slots:
      * Load and display an image from file
      */
     void open();
+    
+    /**
+     * Applies a median filter to an image 
+     */
+    void medianfilter();
 
 private:
 
@@ -45,9 +50,11 @@ private:
     ImageWidget *imageWidget;
 
     QMenu *fileMenu;
+    QMenu *filterMenu;
 
     QAction *openAct;
-
+    QAction *medianFilterAct;
+    
     QLabel *statusLabel;
 
 };
