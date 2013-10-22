@@ -2,6 +2,9 @@
 <configurationDescriptor version="89">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="BasicITKVTKQt">
+      <in>MainWindow.cpp</in>
+      <in>MainWindow.h</in>
+      <in>README</in>
       <in>main.cpp</in>
     </df>
     <logicalFolder name="ExternalFiles"
@@ -39,6 +42,14 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="MainWindow.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="MainWindow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="README" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
         </ccTool>

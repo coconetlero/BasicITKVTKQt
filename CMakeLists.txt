@@ -34,9 +34,12 @@ INCLUDE_DIRECTORIES(
 # Set your files and resources here
 SET(BasicITKVTKQtSrcs
 	main.cpp
+        MainWindow.cpp
 	)
     
-SET(BasicITKVTKQtHeaders)
+SET(BasicITKVTKQtHeaders 
+    MainWindow.h
+    )
     
 SET(BasicITKVTKQtUI )
  
