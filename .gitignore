@@ -1,0 +1,9 @@
+# build directory #
+build/
+nbproject/
+
+#backup files#
+*~
+
+# GUI files#
+.xml

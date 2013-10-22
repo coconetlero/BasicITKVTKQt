@@ -7,15 +7,53 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow()
+#include <iostream>
+
+#include <QtGui>
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
+    createActions();
+    createMenus();
+    createStatusBar();
 }
 
-MainWindow::MainWindow(const MainWindow& orig)
-{
-}
+
 
 MainWindow::~MainWindow()
 {
+
 }
 
+void MainWindow::open()
+{
+    std::cout << "esta es la accion OPEN" << std::endl;
+}
+
+void MainWindow::createMenus()
+{
+    fileMenu = new QMenu(tr("&File"), this);
+    fileMenu->addAction(openAct);   
+
+    menuBar()->addMenu(fileMenu);
+}
+
+void MainWindow::createActions()
+{
+    openAct = new QAction(tr("&Open..."), this);
+    openAct->setShortcut(tr("Ctrl+O"));
+    connect(openAct, SIGNAL(triggered()), this, SLOT(open()));    
+}
+
+
+
+void MainWindow::createStatusBar()
+{
+    statusLabel = new QLabel("Basic Image Viewer");
+    statusLabel->setAlignment(Qt::AlignHCenter);
+    statusLabel->setMaximumSize(statusLabel->sizeHint());
+
+    statusBar()->addWidget(statusLabel);
+}

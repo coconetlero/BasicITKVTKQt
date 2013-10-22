@@ -9,16 +9,42 @@
 #define	MAINWINDOW_H
 
 #include <QMainWindow>
-    
-class MainWindow : public QMainWindow 
+
+class QAction;
+class QMenu;
+class QMenuBar;
+class QLabel;
+
+
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
+
 public:
-    MainWindow();
-    MainWindow(const MainWindow& orig);
+    
+    MainWindow(QWidget* parent = 0);
+
     virtual ~MainWindow();
+
+    
+private slots:    
+    /**
+     * Load and display an image from file
+     */
+    void open();
+
 private:
+
+    void createActions();
+    void createMenus();
+    void createStatusBar();
+
+    QMenu *fileMenu;
+    
+    QAction *openAct;
+
+    QLabel *statusLabel;
 
 };
 

@@ -59,7 +59,12 @@ SOURCE_GROUP("Generated" FILES
   ${MOCSrcs}
 )
  
-ADD_EXECUTABLE(BasicITKVTKQt ${BasicITKVTKQtSrcs} ${BasicITKVTKQtHeaders} ${UISrcs} ${MOCSrcs})
+ADD_EXECUTABLE(BasicITKVTKQt 
+    ${BasicITKVTKQtSrcs} 
+    ${BasicITKVTKQtHeaders} 
+    ${UISrcs} 
+    ${MOCSrcs}
+)
 
 TARGET_LINK_LIBRARIES(BasicITKVTKQt QVTK ${VTK_LIBRARIES} ${ITK_LIBRARIES})
 
