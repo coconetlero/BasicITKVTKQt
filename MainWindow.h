@@ -39,7 +39,7 @@ private slots:
     /**
      * Applies a median filter to an image 
      */
-    void medianfilter();
+    void medianFilter();
 
 private:
 

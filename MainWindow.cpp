@@ -37,7 +37,7 @@ void MainWindow::open()
         this->setCentralWidget(imageWidget);
         this->setWindowTitle(tr("Image Viewer"));
         this->resize(640, 480);
-        
+
         this->statusLabel->setText("Open image");
     }
     else
@@ -49,22 +49,27 @@ void MainWindow::open()
     }
 }
 
+void MainWindow::medianFilter()
+{
+
+}
+
 void MainWindow::createActions()
 {
     openAct = new QAction(tr("&Open..."), this);
     openAct->setShortcut(tr("Ctrl+O"));
     connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
-    
-    medianFilterAct = new QAction(tr("&Median Filter"), this);    
-    connect(medianFilterAct, SIGNAL(triggered()), this, SLOT(medianfilter()));
+
+    medianFilterAct = new QAction(tr("&Median Filter"), this);
+    connect(medianFilterAct, SIGNAL(triggered()), this, SLOT(medianFilter()));
 }
 
 void MainWindow::createMenus()
 {
     fileMenu = new QMenu(tr("&File"), this);
     fileMenu->addAction(openAct);
-    
-    fileMenu = new QMenu(tr("&Filter"), this);
+
+    filterMenu = new QMenu(tr("&Filter"), this);
     filterMenu->addAction(medianFilterAct);
 
     menuBar()->addMenu(fileMenu);
