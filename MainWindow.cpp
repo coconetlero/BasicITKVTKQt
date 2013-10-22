@@ -20,8 +20,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     createStatusBar();
 }
 
-
-
 MainWindow::~MainWindow()
 {
 
@@ -29,7 +27,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::open()
 {
-    std::cout << "esta es la accion OPEN" << std::endl;
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath());
+
+    if (!fileName.isEmpty())
+    {
+        std::cout << fileName.toAscii().data() << std::endl;
+    }
 }
 
 void MainWindow::createMenus()
