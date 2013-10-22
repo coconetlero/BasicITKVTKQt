@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 MainWindow::~MainWindow()
 {
-
+    this->imageWidget = NULL;
 }
 
 void MainWindow::open()
@@ -31,14 +31,28 @@ void MainWindow::open()
 
     if (!fileName.isEmpty())
     {
-        std::cout << fileName.toAscii().data() << std::endl;
+        this->imageWidget = new ImageWidget();
+        this->imageWidget->open(fileName);
+
+        this->setCentralWidget(imageWidget);
+        this->setWindowTitle(tr("Image Viewer"));
+        this->resize(640, 480);
+        
+        this->statusLabel->setText("Open image");
+    }
+    else
+    {
+        QErrorMessage errorMessage;
+        errorMessage.showMessage("No file specified for loading");
+        errorMessage.exec();
+        return;
     }
 }
 
 void MainWindow::createMenus()
 {
     fileMenu = new QMenu(tr("&File"), this);
-    fileMenu->addAction(openAct);   
+    fileMenu->addAction(openAct);
 
     menuBar()->addMenu(fileMenu);
 }
@@ -47,10 +61,8 @@ void MainWindow::createActions()
 {
     openAct = new QAction(tr("&Open..."), this);
     openAct->setShortcut(tr("Ctrl+O"));
-    connect(openAct, SIGNAL(triggered()), this, SLOT(open()));    
+    connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
 }
-
-
 
 void MainWindow::createStatusBar()
 {

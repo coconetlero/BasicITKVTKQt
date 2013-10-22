@@ -12,10 +12,21 @@
 #include <QWidget>
 #include <QVTKWidget.h>
 
+#include <vtkSmartPointer.h>
+
+#include <vtkImageData.h>
+#include <vtkRenderer.h>
+#include <vtkImageActor.h>
+#include <vtkRenderWindow.h>
+#include <vtkCamera.h>
+
+
+
 //#include <QString>
 
 class ImageWidget : public QWidget
 {
+
     Q_OBJECT
 
 public:
@@ -38,13 +49,20 @@ private:
 
     /** A special widget to display inside Qtwidget a vtk object */
     QVTKWidget *qvtkWidget;
-    
+
     /**
      * to display the loaded image in the QVTKwidget
      * @param image vtkImageData
      */
     void displayImage(vtkImageData *image);
 
+    /** The VTK image */
+    vtkSmartPointer <vtkImageData> vtkImage;
+
+    vtkSmartPointer<vtkImageActor> actor;
+    vtkSmartPointer<vtkRenderer> renderer;
+    vtkSmartPointer<vtkRenderWindow> renderWindow;
+    vtkSmartPointer<vtkCamera> camera;
 
 
 };

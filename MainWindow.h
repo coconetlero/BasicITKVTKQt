@@ -8,6 +8,8 @@
 #ifndef MAINWINDOW_H
 #define	MAINWINDOW_H
 
+#include "ImageWidget.h"
+
 #include <QMainWindow>
 
 class QAction;
@@ -15,20 +17,20 @@ class QMenu;
 class QMenuBar;
 class QLabel;
 
-
 class MainWindow : public QMainWindow
 {
+
     Q_OBJECT
 
 
 public:
-    
+
     MainWindow(QWidget* parent = 0);
 
     virtual ~MainWindow();
 
-    
-private slots:    
+
+private slots:
     /**
      * Load and display an image from file
      */
@@ -40,8 +42,10 @@ private:
     void createMenus();
     void createStatusBar();
 
+    ImageWidget *imageWidget;
+
     QMenu *fileMenu;
-    
+
     QAction *openAct;
 
     QLabel *statusLabel;
