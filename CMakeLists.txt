@@ -35,10 +35,12 @@ INCLUDE_DIRECTORIES(
 SET(BasicITKVTKQtSrcs
 	main.cpp
         MainWindow.cpp
-	)
+        ImageWidget.cpp
+    )
     
 SET(BasicITKVTKQtHeaders 
-    MainWindow.h
+        MainWindow.h
+        Imagewidget.h
     )
     
 SET(BasicITKVTKQtUI )
