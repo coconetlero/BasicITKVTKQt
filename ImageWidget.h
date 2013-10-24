@@ -26,7 +26,6 @@
 
 class ImageWidget : public QWidget
 {
-
     Q_OBJECT
 
 public:
@@ -44,6 +43,11 @@ public:
      * load an display an image from file
      */
     void open(QString filename);
+    
+    /**
+     * Applays a median filter to an image
+     */
+    void medianFilter(int windowSize);
 
 private:
 

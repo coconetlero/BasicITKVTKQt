@@ -36,14 +36,18 @@ SET(BasicITKVTKQtSrcs
 	main.cpp
         MainWindow.cpp
         ImageWidget.cpp
+        MedianFilterDialog.cpp
     )
     
 SET(BasicITKVTKQtHeaders 
         MainWindow.h
         Imagewidget.h
+        MedianFilterDialog.h
     )
     
-SET(BasicITKVTKQtUI )
+SET(BasicITKVTKQtUI 
+    MedianFilterDialog.ui
+    )
  
  
 # for generate qt aditional files 

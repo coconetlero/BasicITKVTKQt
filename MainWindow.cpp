@@ -6,10 +6,13 @@
  */
 
 #include "MainWindow.h"
+#include "MedianFilterDialog.h"
 
 #include <iostream>
 
 #include <QtGui>
+#include <QErrorMessage>
+
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -51,6 +54,26 @@ void MainWindow::open()
 
 void MainWindow::medianFilter()
 {
+    // create and show the median filter dialog 
+    MedianFilterDialog filterDialog(this);
+
+    if (this->imageWidget)
+    {
+        // if the user don't cancel the action
+        if (filterDialog.exec())
+        {
+            // get selected value from dialog
+            int size = filterDialog.spinBox->value();
+            this->imageWidget->medianFilter(size);
+        }
+    }
+    else
+    {
+        QErrorMessage errorMessage;
+        errorMessage.showMessage("No file specified for loading");
+        errorMessage.exec();
+        return;
+    }
 
 }
 

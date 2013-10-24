@@ -103,3 +103,7 @@ void ImageWidget::displayImage(vtkImageData* image)
     this->update();
 }
 
+void ImageWidget::medianFilter(int windowSize)
+{
+    std::cout << "median filter - window size = " << windowSize << std::endl;
+}
