@@ -20,9 +20,11 @@
 #include <vtkRenderWindow.h>
 #include <vtkCamera.h>
 
-
+#include <itkImage.h>
 
 //#include <QString>
+
+typedef itk::Image<unsigned char, 2> ImageType;
 
 class ImageWidget : public QWidget
 {
@@ -48,6 +50,17 @@ public:
      * Applays a median filter to an image
      */
     void medianFilter(int windowSize);
+    
+    /**
+     * return an itk image representation from this vtkImageData
+     */
+    ImageType::Pointer toITKImage();
+    
+    /**
+     * return a vtkImageData from a itk image representation.
+     */
+    vtkSmartPointer<vtkImageData> toVTKImageData(ImageType::Pointer itkImage);
+    
 
 private:
 

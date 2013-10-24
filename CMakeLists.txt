@@ -41,7 +41,7 @@ SET(BasicITKVTKQtSrcs
     
 SET(BasicITKVTKQtHeaders 
         MainWindow.h
-        Imagewidget.h
+        ImageWidget.h
         MedianFilterDialog.h
     )
     
