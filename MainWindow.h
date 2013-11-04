@@ -41,6 +41,11 @@ private slots:
      */
     void medianFilter();
 
+    /**
+     * Applies a gradient anisotropic filter to an image
+     */
+    void gradientAnisotropicFilter();
+
 private:
 
     void createActions();
@@ -49,11 +54,17 @@ private:
 
     ImageWidget *imageWidget;
 
+    // Menus
     QMenu *fileMenu;
     QMenu *filterMenu;
 
+    // file menu
     QAction *openAct;
+    
+    // filter menu
     QAction *medianFilterAct;
+    QAction *GAFilterAct;
+    
     
     QLabel *statusLabel;
 
