@@ -50,6 +50,11 @@ public:
      * Applays a median filter to an image
      */
     void medianFilter(int windowSize);
+
+    /**
+     * Applays a Gradient Anisotropic Filter to an image
+     */
+    void gradientAnisotropicFilter(int iterations, float conductance, float timeStep);
     
     /**
      * return an itk image representation from this vtkImageData

@@ -131,6 +131,12 @@ void ImageWidget::medianFilter(int windowSize)
     filter = NULL;
 }
 
+void ImageWidget::gradientAnisotropicFilter(int iterations, float conductance, float timeStep){
+    
+
+    
+}
+
 ImageType::Pointer ImageWidget::toITKImage()
 {
     typedef itk::VTKImageToImageFilter <ImageType> itkConnectorType;
