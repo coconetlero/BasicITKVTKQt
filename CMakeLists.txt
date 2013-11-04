@@ -33,20 +33,23 @@ INCLUDE_DIRECTORIES(
  
 # Set your files and resources here
 SET(BasicITKVTKQtSrcs
-	main.cpp
+        main.cpp
         MainWindow.cpp
         ImageWidget.cpp
         MedianFilterDialog.cpp
+        GADFilterDialog.cpp
     )
     
 SET(BasicITKVTKQtHeaders 
         MainWindow.h
         ImageWidget.h
         MedianFilterDialog.h
+        GADFilterDialog.h
     )
     
 SET(BasicITKVTKQtUI 
-    MedianFilterDialog.ui
+        MedianFilterDialog.ui
+        GADFilterDialog.ui
     )
  
  
