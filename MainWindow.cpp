@@ -89,6 +89,11 @@ void MainWindow::gradientAnisotropicFilter()
         if (filterDialog.exec())
         {
             // get selected values from dialog
+            int iterations = filterDialog.iterationsSpinBox->value();
+			float timeStep = filterDialog.timeStepSpinBox->value();
+			float conductance = filterDialog.conductanceSpinBox->value();
+            
+            this->imageWidget->gradientAnisotropicFilter(iterations, conductance, timeStep);
         }
     }
     else
