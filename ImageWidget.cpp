@@ -146,7 +146,6 @@ void ImageWidget::gradientAnisotropicFilter(int iterations, double conductance, 
     filter->SetNumberOfIterations(iterations);
     filter->SetTimeStep(timeStep);
     filter->SetConductanceParameter(conductance);
-    filter->Update();
     
     // cast the float image to scalar image in order to display
     typedef itk::CastImageFilter< FloatImageType, ImageType > CastFilterType;
@@ -156,7 +155,6 @@ void ImageWidget::gradientAnisotropicFilter(int iterations, double conductance, 
 
     vtkImage = toVTKImageData(castFilter->GetOutput());
     
-
     this->displayImage(vtkImage);
     
     filter = NULL;
