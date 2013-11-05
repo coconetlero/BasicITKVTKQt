@@ -25,6 +25,7 @@
 //#include <QString>
 
 typedef itk::Image<unsigned char, 2> ImageType;
+typedef itk::Image<float, 2> FloatImageType;
 
 class ImageWidget : public QWidget
 {
@@ -54,7 +55,7 @@ public:
     /**
      * Applays a Gradient Anisotropic Filter to an image
      */
-    void gradientAnisotropicFilter(int iterations, float conductance, float timeStep);
+    void gradientAnisotropicFilter(int iterations, double conductance, double timeStep);
     
     /**
      * return an itk image representation from this vtkImageData

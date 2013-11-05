@@ -12,6 +12,8 @@
 #include <vtkInteractorStyleImage.h>
 
 #include <itkMedianImageFilter.h>
+#include <itkGradientAnisotropicDiffusionImageFilter.h>
+
 #include <itkVTKImageToImageFilter.h>
 #include <itkImageToVTKImageFilter.h>
 
@@ -131,10 +133,34 @@ void ImageWidget::medianFilter(int windowSize)
     filter = NULL;
 }
 
-void ImageWidget::gradientAnisotropicFilter(int iterations, float conductance, float timeStep){
+void ImageWidget::gradientAnisotropicFilter(int iterations, double conductance, double timeStep){
+    
+    ImageType::Pointer itkImage = toITKImage();
+    
+    // set up gradient anisotropic diffusion filter
+    
+    typedef itk::GradientAnisotropicDiffusionImageFilter< ImageType, FloatImageType > FilterType;
+    
+    FilterType::Pointer filter = FilterType::New();
+    filter->SetInput(itkImage);
+    filter->SetNumberOfIterations(iterations);
+    filter->SetTimeStep(timeStep);
+    filter->SetConductanceParameter(conductance);
+    filter->Update();
+    
+    // cast the float image to scalar image in order to display
+    typedef itk::CastImageFilter< FloatImageType, ImageType > CastFilterType;
+    CastFilterType::Pointer castFilter = CastFilterType::New();
+    castFilter->SetInput(filter->GetOutput());
+    castFilter->Update();
+
+    vtkImage = toVTKImageData(castFilter->GetOutput());
     
 
+    this->displayImage(vtkImage);
     
+    filter = NULL;
+    castFilter = NULL;
 }
 
 ImageType::Pointer ImageWidget::toITKImage()
