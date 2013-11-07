@@ -2,7 +2,8 @@ This software tool is a very basic Image Processing application. Build for
 demonstrative purposes, in the use of Qt, VTK and ITK libraries together. 
 
 This app, create a GUI with Qt, load and display an image from file using 
-VTK in conjunction with Qt. Also you can apply an ITK image filter and display 
+VTK in conjunction with Qt. Also you can apply an ITK image filter (median 
+filter and Gradient Anisotropic Diffusion filter) and display 
 the resulting image. 
 
 In order to compile and run this example you need the following libraries:
